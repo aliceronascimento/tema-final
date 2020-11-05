@@ -1,0 +1,27 @@
+plugins {
+    id 'war'
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
+    providedCompile group: 'org.springframework', name: 'spring-core', version: '5.2.7.RELEASE'
+    providedCompile group: 'org.springframework', name: 'spring-context', version: '5.2.7.RELEASE'
+    providedCompile group: 'org.springframework', name: 'spring-beans', version: '5.2.7.RELEASE'
+    providedCompile group: 'log4j', name: 'log4j', version: '1.2.17'
+
+    providedCompile group: 'io.rest-assured', name: 'rest-assured', version: '4.3.1'
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.springframework:spring-test:5.2.7.RELEASE'
+}
+
+task deploy (dependsOn: war, type: Copy) {
+    from "build/libs"
+    into "${jetty_path}"
+    include "*.war"
+}

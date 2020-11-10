@@ -61,11 +61,6 @@ public class CalculatorTest {
         calculator.calculate(7.0, null, 4.0);
     }
 
-    @Test(expected = DivisionByZeroException.class)
-    public void calculateDivionByZeroTest() {
-        calculator.calculate(2.0, OperationType.DIV, 0.0);
-    }
-
     @Test
     public void subtractionWithNegativeValueTest() {
         double result = calculator.calculate(-14.0, OperationType.SUB, -4.0).calculate();

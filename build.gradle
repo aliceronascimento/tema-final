@@ -29,8 +29,10 @@ dependencies {
 
 }
 
-task deploy (dependsOn: war, type: Copy) {
-    from "build/libs"
-    into "${jetty_path}"
-    include "*.war"
+task deploy (dependsOn: jar, type: Copy) {
+    include "*.jar"
+}
+
+jar {
+    archiveFileName = 'calculator.jar'
 }

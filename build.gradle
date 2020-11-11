@@ -6,7 +6,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.15.1"
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.18.0"
     }
 }
 
@@ -24,10 +24,7 @@ def springVersion = "5.2.7.RELEASE"
 def karyonVersion = '2.9.2'
 
 repositories {
-    maven { url 'http://repo.spring.io/libs-release'}
     mavenCentral()
-    maven { url 'http://oss.sonatype.org/content/groups/public'}
-    mavenLocal()
 }
 
 dependencies {

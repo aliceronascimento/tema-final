@@ -3,6 +3,7 @@ plugins {
 }
 
 group 'com.aliceronascimento.cloud.temafinal'
+version '1.0'
 sourceCompatibility = 1.8
 
 def springVersion = "5.2.7.RELEASE"

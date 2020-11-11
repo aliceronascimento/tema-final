@@ -37,9 +37,12 @@ task fatJar(type: Jar) {
     manifest {
         attributes 'Main-Class': 'com.aliceronascimento.cloud.temafinal.Application'
     }
-    archiveFileName = "calculator.jar"
 
     from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
 
+jar{
+    archiveFileName = "calculator.jar"
+
+}

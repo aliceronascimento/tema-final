@@ -1,3 +1,5 @@
-FROM jetty
-ADD build/libs/tema-06.war /var/lib/jetty/webapps/tema-06.war
-EXPOSE 8089
+FROM openjdk:8
+WORKDIR /
+ADD ./build/libs/calculator.jar calculator.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "/calculator.jar"]

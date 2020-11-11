@@ -12,7 +12,6 @@ import java.util.List;
 public class Calculator {
 
     private List<Operation> operationsHistory;
-
     @Autowired
     ApplicationContext ac;
 

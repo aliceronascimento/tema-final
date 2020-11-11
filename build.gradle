@@ -34,5 +34,6 @@ task deploy (dependsOn: jar, type: Copy) {
 }
 
 jar {
-    archiveFileName = 'calculator.jar'
+    archiveName = 'calculator.jar'
 }
+

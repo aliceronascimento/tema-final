@@ -24,7 +24,10 @@ def springVersion = "5.2.7.RELEASE"
 def karyonVersion = '2.9.2'
 
 repositories {
+    maven { url 'http://repo.spring.io/libs-release'}
     mavenCentral()
+    maven { url 'http://oss.sonatype.org/content/groups/public'}
+    mavenLocal()
 }
 
 dependencies {
@@ -61,7 +64,7 @@ artifactory {
     publish {
         contextUrl = "${artifactory_contextUrl}"
         repository {
-            repoKey = 'gradle-release'
+            repoKey = 'gradle-dev-local'
             username = "${artifactory_user}"
             password = "${artifactory_password}"
         }

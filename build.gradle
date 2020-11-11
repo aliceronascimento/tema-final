@@ -1,6 +1,20 @@
-plugins {
-    id 'java'
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.15.1"
+    }
 }
+
+apply plugin: "com.jfrog.artifactory"
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'maven-publish'
+apply plugin: 'maven'
 
 group 'com.aliceronascimento.cloud.temafinal'
 version '1.0'
@@ -43,3 +57,25 @@ task fatJar(type: Jar) {
     with jar
 }
 
+artifactory {
+    publish {
+        contextUrl = "${artifactory_contextUrl}"
+        repository {
+            repoKey = 'gradle-release'
+            username = "${artifactory_user}"
+            password = "${artifactory_password}"
+        }
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+artifactoryPublish{
+    dependsOn fatJar
+}

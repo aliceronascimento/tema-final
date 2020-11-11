@@ -29,11 +29,10 @@ dependencies {
 
 }
 
-task deploy (dependsOn: jar, type: Copy) {
-    include "*.jar"
+task deploy (dependsOn: war, type: Copy) {
+    include "*.war"
 }
 
-jar {
-    archiveName = 'calculator.jar'
+war {
+    archiveFileName = 'calculator.war'
 }
-
